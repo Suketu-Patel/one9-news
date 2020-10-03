@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Card from './components/Card.js';
 import api from './api'
 import './App.css';
 
 const App = () => {
-  const [newsData, setNewsData] = useState({});
+  const [newsData, setNewsData] = useState([]);
   useEffect(() => {
     fetchResult();
   }, [])
@@ -18,6 +19,13 @@ const App = () => {
       {
         newsData && <pre><code>{JSON.stringify(newsData, null, 4)}</code></pre>
       }
+    <div>
+        {
+          newsData.map(singleNews => {
+            return <Card news = {singleNews} />
+          })
+        }
+    </div>
     </div>
   );
 }
