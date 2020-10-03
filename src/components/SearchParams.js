@@ -20,7 +20,6 @@ const SearchParams = () => {
         setLoading(true)
         const newsData = await api.get(`q=${search}`)
         addIdentifier(newsData.articles)
-        console.log('newsData', newsData.articles);
         setNewsData(newsData.articles)
         setLoading(false)
     }
