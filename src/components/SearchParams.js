@@ -1,4 +1,5 @@
-import React, { useState, useEffect, Fragment } from "react"
+import React, { useState, useEffect, Fragment } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import api from "../api"
 import Cards from "./Cards";
 import { Input, Spin } from 'antd';
@@ -18,8 +19,14 @@ const SearchParams = () => {
     const fetchResult = async () => {
         setLoading(true)
         const newsData = await api.get(`q=${search}`)
+        addIdentifier(newsData.articles)
+        console.log('newsData', newsData.articles);
         setNewsData(newsData.articles)
         setLoading(false)
+    }
+
+    const addIdentifier = (data) => {
+        data.map(eachData => eachData["id"] = uuidv4());
     }
     return (
         <Fragment>
