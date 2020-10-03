@@ -1,7 +1,8 @@
 import React from 'react';
 import { Router, Link } from "@reach/router"
 import 'antd/dist/antd.css';
-import SearchParams from './components/SearchParams.js';
+import SearchParams from './components/SearchParams/SearchParams.js';
+import SingleNewsDetails from './components/SingleNewsDetails/SingleNewsDetails.js'
 import { Menu, Layout } from 'antd';
 import {
   HomeOutlined,
@@ -23,6 +24,7 @@ const App = () => {
       <Content style={{ margin: '50px' }}>
         <Router>
           <SearchParams path="/" />
+          <SingleNewsDetails path="/details/:id" />
         </Router>
       </Content>
     </div>

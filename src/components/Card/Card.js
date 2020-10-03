@@ -1,13 +1,14 @@
 import React from 'react';
 import { Card } from 'antd';
+import { Link } from "@reach/router"
 import './styles.css';
 
 const { Meta } = Card;
 
 function CardComponent(props) {
-  const { source, author, title, description, urlToImage, url, content } = props.news;
+  const { id, source, author, title, description, urlToImage, url, content } = props.news;
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer">
+    <Link to={`details/${id}`} state={{ data: props.news }}>
       <Card
         hoverable
         className="card-style"
@@ -16,7 +17,7 @@ function CardComponent(props) {
       >
         <Meta title={title} description={description} />
       </Card>
-    </a>
+    </Link>
   )
 }
 
