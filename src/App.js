@@ -1,31 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import Card from './components/Card/Card.js';
-import api from './api'
-import './App.css';
+import React from 'react';
+import { Router, Link } from "@reach/router"
+import 'antd/dist/antd.css';
+import SearchParams from './components/SearchParams.js';
+import { Menu, Layout } from 'antd';
+
+const { Header, Content } = Layout;
 
 const App = () => {
-  const [newsData, setNewsData] = useState([]);
-  useEffect(() => {
-    fetchResult();
-  }, [])
-
-  const fetchResult = async () => {
-    const newsData = await api.get("q=ipl")
-    setNewsData(newsData.articles)
-  }
 
   return (
     <div className="App">
-      {
-        newsData && <pre><code>{JSON.stringify(newsData, null, 4)}</code></pre>
-      }
-    <div>
-        {
-          newsData.map(singleNews => {
-            return <div className="single-card"><Card news = {singleNews} /></div>
-          })
-        }
-    </div>
+      <Header>
+        <Menu theme="dark" mode="horizontal">
+          <Menu.Item>
+            <Link to="/" style={{ textDecoration: "none" }}>Simple News App</Link>
+          </Menu.Item>
+        </Menu>
+      </Header>
+      <Content style={{ margin: '50px' }}>
+        <Router>
+          <SearchParams path="/" />
+        </Router>
+      </Content>
     </div>
   );
 }

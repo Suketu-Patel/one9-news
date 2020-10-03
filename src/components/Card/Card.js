@@ -2,12 +2,11 @@ import React from 'react';
 import './styles.css';
 
 function Card(props) {
-  const {source, author, title, description, urlToImage: url , content} = props.news;
-  console.log('source ', 'url', source, url);
+  const { source, author, title, description, urlToImage: url, content } = props.news;
   const width = 100;
   const height = 100;
   return (
-    <div className="card-container">
+    <div className="card-container single-card">
       <div className="card-image">
         <img src={url} width={width} height={height} alt="news" />
       </div>
