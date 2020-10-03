@@ -1,7 +1,12 @@
 .App {
   text-align: center;
+ 
 }
-
+.single-card {
+  margin: 2.5vh 0vh;
+  padding: 5vh 2vw;
+  background-color: gray;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

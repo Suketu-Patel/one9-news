@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Card from './components/Card.js';
+import Card from './components/Card/Card.js';
 import api from './api'
 import './App.css';
 
@@ -22,7 +22,7 @@ const App = () => {
     <div>
         {
           newsData.map(singleNews => {
-            return <Card news = {singleNews} />
+            return <div className="single-card"><Card news = {singleNews} /></div>
           })
         }
     </div>
