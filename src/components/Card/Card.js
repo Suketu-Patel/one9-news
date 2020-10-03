@@ -1,21 +1,23 @@
 import React from 'react';
+import { Card } from 'antd';
 import './styles.css';
 
-function Card(props) {
-  const { source, author, title, description, urlToImage: url, content } = props.news;
-  const width = 100;
-  const height = 100;
+const { Meta } = Card;
+
+function CardComponent(props) {
+  const { source, author, title, description, urlToImage, url, content } = props.news;
   return (
-    <div className="card-container single-card">
-      <div className="card-image">
-        <img src={url} width={width} height={height} alt="news" />
-      </div>
-      <div className="card-details">
-        <h2 className="card-title">{title}</h2>
-        <div className="card-content">{content}</div>
-      </div>
-    </div>
+    <a href={url} target="_blank">
+      <Card
+        hoverable
+        className="card-style"
+        style={{ width: 400 }}
+        cover={<img alt="example" src={urlToImage} />}
+      >
+        <Meta title={title} description={description} />
+      </Card>
+    </a>
   )
 }
 
-export default Card;
+export default CardComponent;

@@ -1,8 +1,7 @@
 .card-container {
   display: flex;
 }
-.single-card {
+.card-style{
   margin: 2.5vh 0vh;
-  padding: 5vh 2vw;
-  background-color: gray;
+  
 }
