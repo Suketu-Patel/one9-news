@@ -1,22 +1,12 @@
-import React from "react";
-import { Card } from "antd";
-import { Link } from "@reach/router";
-import "./styles.css";
+import React from 'react';
+import { Card } from 'antd';
+import { Link } from "@reach/router"
+import './styles.css';
 
 const { Meta } = Card;
 
 function CardComponent(props) {
-  const {
-    id,
-    source,
-    author,
-    title,
-    description,
-    urlToImage,
-    url,
-    content,
-  } = props.news; // here we have used javascript destructuring concept.....
-
+  const { id, source, author, title, description, urlToImage, url, content } = props.news;
   return (
     <Link to={`details/${id}`} state={{ data: props.news }}>
       <Card
@@ -28,7 +18,7 @@ function CardComponent(props) {
         <Meta title={title} description={description} />
       </Card>
     </Link>
-  );
+  )
 }
 
 export default CardComponent;
