@@ -7,7 +7,7 @@ const { Meta } = Card;
 function CardComponent(props) {
   const { source, author, title, description, urlToImage, url, content } = props.news;
   return (
-    <a href={url} target="_blank">
+    <a href={url} target="_blank" rel="noopener noreferrer">
       <Card
         hoverable
         className="card-style"
