@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"; // example of default export ...
 import { Router, Link } from "@reach/router";
 import "antd/dist/antd.css";
-import { SearchParams, SingleNewsDetails } from "./components";
+import { SearchParams, SingleNewsDetails } from "./components"; // example of named exports ....
 import { Menu, Layout } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
 
