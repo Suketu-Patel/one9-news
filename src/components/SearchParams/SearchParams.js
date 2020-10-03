@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import api from "../api"
-import Cards from "./Cards";
+import api from "../../api"
+import Cards from "../Cards";
 import { Input, Spin } from 'antd';
 import "./SearchParams.css"
 
@@ -24,8 +24,17 @@ const SearchParams = () => {
         setLoading(false)
     }
 
-    const addIdentifier = (data) => {
-        data.map(eachData => eachData["id"] = uuidv4());
+    const addIdentifier = (data = []) => {
+        data.map(eachData => {
+            eachData["id"] = uuidv4()
+            if (eachData["content"]) {
+                eachData["content"] = eachData["content"].substring(0, 201)
+                eachData["isContentAvailable"] = true
+            } else {
+                eachData["content"] = "No Content"
+                eachData["isContentAvailable"] = false
+            }
+        });
     }
     return (
         <Fragment>

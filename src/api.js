@@ -1,4 +1,4 @@
-const URL = `http://newsapi.org/v2/everything?`
+const URL = `https://newsapi.org/v2/everything?`
 const API_KEY = 'apiKey=' + process.env.REACT_APP_NEWS_API_KEY
 
 const api = {
