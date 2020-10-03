@@ -1,8 +1,7 @@
 import React from 'react';
 import { Router, Link } from "@reach/router"
 import 'antd/dist/antd.css';
-import SearchParams from './components/SearchParams/SearchParams.js';
-import SingleNewsDetails from './components/SingleNewsDetails/SingleNewsDetails.js'
+import {SearchParams, SingleNewsDetails} from './components';
 import { Menu, Layout } from 'antd';
 import {
   HomeOutlined,
