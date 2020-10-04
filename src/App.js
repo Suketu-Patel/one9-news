@@ -1,6 +1,6 @@
+import "antd/dist/antd.css";
 import React, { useState } from "react"; // example of default export ...
 import { Router, Link } from "@reach/router";
-import "antd/dist/antd.css";
 import { SearchParams, SingleNewsDetails } from "./components"; // example of named exports ....
 import Favorites from './components/Favorites/Favorites';
 import { Menu, Layout } from "antd";
@@ -15,7 +15,6 @@ const App = () => {
   const addToFavorites = (id) => {
     setFavorites([...favorites, ...newsData.filter(singleNewsData => singleNewsData.id === id)]);
   }
-  console.log('favorites', favorites);
   return (
     <div className="App">
       <Header>

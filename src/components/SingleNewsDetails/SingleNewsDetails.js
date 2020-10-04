@@ -39,13 +39,13 @@ const SingleNewsDetails = (props) => {
         <Title>{title}</Title>
         <div>
           {!liked ?
-            <LikeOutlined onClick={() => {
+            <LikeOutlined className="likeBtn" onClick={() => {
               props.setFavorites(id)
               setLiked(true)
             }
             } />
             :
-            <LikeFilled />
+            <LikeFilled className="likedBtn" />
           }
         </div>
         <center>

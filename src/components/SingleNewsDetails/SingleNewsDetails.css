@@ -1,3 +1,26 @@
 .wrapper {
     padding: 20px;
 }
+
+.likeBtn {
+    border: 2px solid #137ada;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    color: #1890ff;
+    font-size: 22px;
+}
+
+.likeBtn svg:active{
+    font-size: 26px;
+}
+
+.likedBtn {
+    border: 2px solid #fff;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    color: #fff;
+    font-size: 22px;
+    background-color: #137ada;
+}
