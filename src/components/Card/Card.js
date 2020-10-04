@@ -1,11 +1,12 @@
 import React from "react";
 import { Card } from "antd";
 import { Link } from "@reach/router";
-import "./styles.css";
+import "./Card.css";
 
 const { Meta } = Card;
 
 function CardComponent(props) {
+  console.log('props', props);
   const {
     id,
     source,

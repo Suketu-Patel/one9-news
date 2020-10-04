@@ -5,18 +5,20 @@ import "./SingleNewsDetails.css";
 const { Content } = Layout;
 const { Title } = Typography;
 
-const SingleNewsDetails = ({ location }) => {
-  if (location.state.data) {
+const SingleNewsDetails = (props) => {
+  console.log('props', props)
+  if (props.location.state.data) {
     const {
       title,
       urlToImage,
       url,
       content,
+      id,
       isContentAvailable,
-    } = location.state.data;
+    } = props.location.state.data;
     return (
       <Layout className="wrapper">
-        <Title>{title}</Title>
+        <div onClick={() => props.setFavorites(id)}><Title>{title}</Title></div>
         <center>
           <Image src={urlToImage} width={"50%"} style={{ marginTop: "20px" }} />
         </center>

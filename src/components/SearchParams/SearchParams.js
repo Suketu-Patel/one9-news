@@ -7,8 +7,8 @@ import "./SearchParams.css";
 
 const { Search } = Input;
 
-const SearchParams = () => {
-  const [newsData, setNewsData] = useState([]);
+const SearchParams = (props) => {
+    const {setNewsData, newsData} = props;
   const [search, setSearch] = useState("ipl");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
