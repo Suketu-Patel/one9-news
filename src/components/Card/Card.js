@@ -6,7 +6,6 @@ import "./Card.css";
 const { Meta } = Card;
 
 function CardComponent(props) {
-  console.log('props', props);
   const {
     id,
     title,
@@ -14,7 +13,7 @@ function CardComponent(props) {
     urlToImage,
   } = props.news; // here we have used javascript's destructuring concept ....
   return (
-    <Link to={`details/${id}`} state={{ data: props.news }}>
+    <Link to={`/details/${id}`} state={{ data: props.news }}>
       <Card
         hoverable
         className="card-style"

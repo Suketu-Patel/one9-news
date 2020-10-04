@@ -1,4 +1,4 @@
-import React, {useState} from "react"; // example of default export ...
+import React, { useState } from "react"; // example of default export ...
 import { Router, Link } from "@reach/router";
 import "antd/dist/antd.css";
 import { SearchParams, SingleNewsDetails } from "./components"; // example of named exports ....
@@ -14,7 +14,6 @@ const App = () => {
 
   const addToFavorites = (id) => {
     setFavorites([...favorites, ...newsData.filter(singleNewsData => singleNewsData.id === id)]);
-    console.log('here in addTo');
   }
   console.log('favorites', favorites);
   return (
@@ -36,8 +35,8 @@ const App = () => {
       </Header>
       <Content style={{ margin: "50px" }}>
         <Router>
-          <SearchParams path="/" setNewsData= {setNewsData} newsData={newsData} />
-          <SingleNewsDetails path="/details/:id" setFavorites={addToFavorites}/>
+          <SearchParams path="/" setNewsData={setNewsData} newsData={newsData} />
+          <SingleNewsDetails path="/details/:id" favorites={favorites} setFavorites={addToFavorites} />
           <Favorites path="/favorites" favorites={favorites} />
         </Router>
       </Content>

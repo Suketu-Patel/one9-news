@@ -1,13 +1,31 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { Layout, Typography, Image } from "antd";
+import {
+  LikeOutlined,
+  LikeFilled
+} from '@ant-design/icons';
 import "./SingleNewsDetails.css";
+import { useEffect } from "react";
 
 const { Content } = Layout;
 const { Title } = Typography;
 
 const SingleNewsDetails = (props) => {
-  console.log('props', props)
-  if (props.location.state.data) {
+  const {
+    favorites,
+    location
+  } = props;
+  const [liked, setLiked] = useState(false)
+  useEffect(() => {
+    favorites.some((favorite) => {
+      if (favorite.publishedAt === location.state.data.publishedAt) {
+        setLiked(true)
+        return true;
+      }
+      return false
+    })
+  }, [location.state.data.publishedAt, favorites])
+  if (location.state.data) {
     const {
       title,
       urlToImage,
@@ -15,10 +33,21 @@ const SingleNewsDetails = (props) => {
       content,
       id,
       isContentAvailable,
-    } = props.location.state.data;
+    } = location.state.data;
     return (
       <Layout className="wrapper">
-        <div onClick={() => props.setFavorites(id)}><Title>{title}</Title></div>
+        <Title>{title}</Title>
+        <div>
+          {!liked ?
+            <LikeOutlined onClick={() => {
+              props.setFavorites(id)
+              setLiked(true)
+            }
+            } />
+            :
+            <LikeFilled />
+          }
+        </div>
         <center>
           <Image src={urlToImage} width={"50%"} style={{ marginTop: "20px" }} />
         </center>
