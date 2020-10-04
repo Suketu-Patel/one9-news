@@ -9,13 +9,9 @@ function CardComponent(props) {
   console.log('props', props);
   const {
     id,
-    source,
-    author,
     title,
     description,
     urlToImage,
-    url,
-    content,
   } = props.news; // here we have used javascript's destructuring concept ....
   return (
     <Link to={`details/${id}`} state={{ data: props.news }}>
