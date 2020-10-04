@@ -9,7 +9,6 @@ const { Search } = Input;
 
 const SearchParams = (props) => {
   const { setNewsData, newsData } = props;
-  const [newsData, setNewsData] = useState([]);
   const [search, setSearch] = useState("ipl")
   const [loading, setLoading] = useState(true)
 
@@ -19,7 +18,7 @@ const SearchParams = (props) => {
     addIdentifier(newsData.articles)
     setNewsData(newsData.articles)
     setLoading(false)
-  }, [search])
+  }, [search, setNewsData])
 
   useEffect(() => {
     fetchResult();
